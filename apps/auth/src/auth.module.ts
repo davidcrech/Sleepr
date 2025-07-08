@@ -16,6 +16,7 @@ import * as Joi from 'joi';
       envFilePath: 'apps/auth/.env',
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
+        PORT: Joi.number().required(),
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRATION: Joi.string().required(),
       }),
