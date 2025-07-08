@@ -13,6 +13,7 @@ import * as Joi from 'joi';
     LoggerModule,
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: 'apps/auth/.env',
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
         JWT_SECRET: Joi.string().required(),
@@ -26,6 +27,7 @@ import * as Joi from 'joi';
           expiresIn: `${configService.get('JWT_EXPIRATION')}s`,
         },
       }),
+      inject: [ConfigService],
     }),
   ],
   controllers: [AuthController],
