@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ReservationsController } from './reservations.controller';
 import { ReservationsService } from './reservations.service';
+import { ReservationsController } from './reservations.controller';
 import { DatabaseModule } from '@app/common';
 import { ConfigModule } from '@nestjs/config';
-import { ReservationsModule } from './reservations/reservations.module';
 
 @Module({
   imports: [
@@ -11,7 +10,6 @@ import { ReservationsModule } from './reservations/reservations.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    ReservationsModule,
   ],
   controllers: [ReservationsController],
   providers: [ReservationsService],
