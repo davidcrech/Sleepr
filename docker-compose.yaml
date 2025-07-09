@@ -11,7 +11,7 @@ services:
       - '3000:3000'
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - node_modules_reservations:/usr/src/app/node_modules
 
   auth:
     build:
@@ -25,7 +25,7 @@ services:
       - '3001:3001'
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - node_modules_auth:/usr/src/app/node_modules
 
   payments:
     build:
@@ -39,7 +39,12 @@ services:
       - '3003:3003'
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - node_modules_payments:/usr/src/app/node_modules
 
   mongo:
     image: mongo
+
+volumes:
+  node_modules_auth:
+  node_modules_reservations:
+  node_modules_payments:
